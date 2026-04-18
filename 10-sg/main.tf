@@ -11,10 +11,12 @@
 
 
 module "sg" {
+
+  count = length(var.sg_names)
   source = "git::https://github.com/vikasarisela/terraform-sg.git"
   project_name = var.project_name
   environment = var.environment
-  sg_name = "mongodb"
-  sg_descrption =  "created for mongdb"
+  sg_name = var.sg_names[count.index]
+  sg_description =   "created for ${var.sg_names[count.index]}"
   vpc_id = local.vpc_id
 }

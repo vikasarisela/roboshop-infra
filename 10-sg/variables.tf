@@ -22,4 +22,4 @@ variable "sg_names" {
         "backend_alb",
         "open_vpn"
     ]
-}
+} 
